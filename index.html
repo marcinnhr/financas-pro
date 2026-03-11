@@ -1,35 +1,41 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finanças Pro</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>React Finances App</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <header>
-        <h1>Finanças Pro</h1>
-    </header>
-    <main>
-        <form id="transaction-form">
-            <label for="date">Data:</label>
-            <input type="date" id="date" required aria-required="true">
-            <label for="amount">Valor:</label>
-            <input type="number" id="amount" required aria-required="true">
-            <label for="category">Categoria:</label>
-            <select id="category" aria-required="true">
-                <option value="food">Alimentação</option>
-                <option value="transport">Transporte</option>
-                <option value="entertainment">Entretenimento</option>
-                <option value="utilities">Utilidades</option>
-            </select>
-            <button type="submit">Adicionar Transação</button>
+<body class="bg-gray-100">
+    <div id="app" class="container mx-auto px-4 py-6">
+        <h1 class="text-3xl font-bold mb-6 text-center">Finances Tracker</h1>
+        <form class="mb-6">
+            <div class="mb-4">
+                <label for="transaction">Transaction Name</label>
+                <input type="text" id="transaction" class="border rounded p-2 w-full" required />
+            </div>
+            <div class="mb-4">
+                <label for="amount">Amount</label>
+                <input type="number" id="amount" class="border rounded p-2 w-full" required />
+            </div>
+            <div class="mb-4">
+                <label for="date">Date</label>
+                <input type="date" id="date" class="border rounded p-2 w-full" required />
+            </div>
+            <button type="submit" class="bg-blue-500 text-white border-0 rounded p-2">Add Transaction</button>
         </form>
-        <div id="transaction-list">
-            <h2>Lista de Transações</h2>
-            <ul></ul>
+        <div id="transaction-list" class="mt-6">
+            <h2 class="text-2xl mb-4">Transactions</h2>
+            <ul class="list-disc">
+                <!-- Transaction items will be injected here -->
+            </ul>
         </div>
-    </main>
+        <div class="flex justify-between mt-6">
+            <button class="bg-gray-500 text-white rounded p-2" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+            <button class="bg-green-500 text-white rounded p-2" onclick="exportToExcel()">Export to Excel</button>
+            <button class="bg-blue-500 text-white rounded p-2" onclick="shareOnWhatsApp()">Share on WhatsApp</button>
+        </div>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>
